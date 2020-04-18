@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Explorer la Trans-Atlantic Slave trade Database avec R</title>
+  <meta name="description" content="Explorer la Trans-Atlantic Slave trade Database avec R" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Explorer la Trans-Atlantic Slave trade Database avec R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Explorer la Trans-Atlantic Slave trade Database avec R" />
+  
+  
+  
+
+<meta name="author" content="Wilfrid Cariou" />
+
+
+<meta name="date" content="2020-04-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="prise-en-main.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Explorer la TASTDb avec R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="prise-en-main.html"><a href="prise-en-main.html"><i class="fa fa-check"></i><b>1</b> Prise en main</a><ul>
+<li class="chapter" data-level="1.1" data-path="prise-en-main.html"><a href="prise-en-main.html#installation"><i class="fa fa-check"></i><b>1.1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="prise-en-main.html"><a href="prise-en-main.html#installer-r"><i class="fa fa-check"></i><b>1.1.1</b> Installer R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="prise-en-main.html"><a href="prise-en-main.html#installer-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Installer RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="prise-en-main.html"><a href="prise-en-main.html#evolutivité"><i class="fa fa-check"></i><b>1.2</b> Evolutivité</a></li>
+<li class="chapter" data-level="1.3" data-path="prise-en-main.html"><a href="prise-en-main.html#interface"><i class="fa fa-check"></i><b>1.3</b> Interface</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#quelques-repères-indispensables-pour-débuter"><i class="fa fa-check"></i><b>1.3.1</b> Quelques repères indispensables pour débuter</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#organiser-ses-fichiers-dans-un-projet"><i class="fa fa-check"></i><b>1.3.2</b> Organiser ses fichiers dans un projet</a></li>
+<li class="chapter" data-level="1.3.3" data-path="prise-en-main.html"><a href="prise-en-main.html#console-et-scripts"><i class="fa fa-check"></i><b>1.3.3</b> Console et scripts</a><ul>
+<li class="chapter" data-level="1.3.3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#comment-saisir-une-instruction-dans-la-console"><i class="fa fa-check"></i><b>1.3.3.1</b> Comment saisir une instruction dans la console ?</a></li>
+<li class="chapter" data-level="1.3.3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#comment-saisir-une-instruction-dans-un-script"><i class="fa fa-check"></i><b>1.3.3.2</b> Comment saisir une instruction dans un script ?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="prise-en-main.html"><a href="prise-en-main.html#lecture-des-données"><i class="fa fa-check"></i><b>1.4</b> Lecture des données</a></li>
+<li class="chapter" data-level="1.5" data-path="prise-en-main.html"><a href="prise-en-main.html#quelques-bases-du-langage"><i class="fa fa-check"></i><b>1.5</b> Quelques bases du langage</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="prise-en-main.html"><a href="prise-en-main.html#des-instructions-simples-les-expressions-arithmétiques"><i class="fa fa-check"></i><b>1.5.1</b> Des instructions simples, les expressions arithmétiques</a></li>
+<li class="chapter" data-level="1.5.2" data-path="prise-en-main.html"><a href="prise-en-main.html#les-variables"><i class="fa fa-check"></i><b>1.5.2</b> Les variables</a><ul>
+<li class="chapter" data-level="1.5.2.1" data-path="prise-en-main.html"><a href="prise-en-main.html#afficher-le-contenu-dune-variable"><i class="fa fa-check"></i><b>1.5.2.1</b> Afficher le contenu d’une variable</a></li>
+<li class="chapter" data-level="1.5.2.2" data-path="prise-en-main.html"><a href="prise-en-main.html#supprimer-une-variable"><i class="fa fa-check"></i><b>1.5.2.2</b> Supprimer une variable</a></li>
+<li class="chapter" data-level="1.5.2.3" data-path="prise-en-main.html"><a href="prise-en-main.html#réaffecter-une-valeur-à-une-variable"><i class="fa fa-check"></i><b>1.5.2.3</b> Réaffecter une valeur à une variable</a></li>
+<li class="chapter" data-level="1.5.2.4" data-path="prise-en-main.html"><a href="prise-en-main.html#exemple-de-séquence-dinstructions"><i class="fa fa-check"></i><b>1.5.2.4</b> Exemple de séquence d’instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5.3" data-path="prise-en-main.html"><a href="prise-en-main.html#les-vecteurs"><i class="fa fa-check"></i><b>1.5.3</b> Les vecteurs</a></li>
+<li class="chapter" data-level="1.5.4" data-path="prise-en-main.html"><a href="prise-en-main.html#les-fonctions"><i class="fa fa-check"></i><b>1.5.4</b> Les fonctions</a><ul>
+<li class="chapter" data-level="1.5.4.1" data-path="prise-en-main.html"><a href="prise-en-main.html#découvrir-les-fonctions"><i class="fa fa-check"></i><b>1.5.4.1</b> Découvrir les fonctions</a></li>
+<li class="chapter" data-level="1.5.4.2" data-path="prise-en-main.html"><a href="prise-en-main.html#découvrir-quelques-fonctions-existantes-de-r-base"><i class="fa fa-check"></i><b>1.5.4.2</b> Découvrir quelques fonctions existantes de R Base</a></li>
+<li class="chapter" data-level="1.5.4.3" data-path="prise-en-main.html"><a href="prise-en-main.html#imbriquer-des-fonctions"><i class="fa fa-check"></i><b>1.5.4.3</b> Imbriquer des fonctions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5.5" data-path="prise-en-main.html"><a href="prise-en-main.html#règles-et-conventions-de-syntaxe"><i class="fa fa-check"></i><b>1.5.5</b> Règles et conventions de syntaxe</a><ul>
+<li class="chapter" data-level="1.5.5.1" data-path="prise-en-main.html"><a href="prise-en-main.html#déclaration"><i class="fa fa-check"></i><b>1.5.5.1</b> Déclaration</a></li>
+<li class="chapter" data-level="1.5.5.2" data-path="prise-en-main.html"><a href="prise-en-main.html#conventions-de-déclaration"><i class="fa fa-check"></i><b>1.5.5.2</b> Conventions de déclaration</a></li>
+<li class="chapter" data-level="1.5.5.3" data-path="prise-en-main.html"><a href="prise-en-main.html#conventions-de-style"><i class="fa fa-check"></i><b>1.5.5.3</b> Conventions de style</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5.6" data-path="prise-en-main.html"><a href="prise-en-main.html#commenter-ses-instructions"><i class="fa fa-check"></i><b>1.5.6</b> Commenter ses instructions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html"><i class="fa fa-check"></i><b>2</b> Inventaire des données</a><ul>
+<li class="chapter" data-level="2.1" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#inspection-visuelle-des-données"><i class="fa fa-check"></i><b>2.1</b> Inspection visuelle des données</a></li>
+<li class="chapter" data-level="2.2" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#structure-des-données"><i class="fa fa-check"></i><b>2.2</b> Structure des données</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#voyages-un-objet-de-type-tibble"><i class="fa fa-check"></i><b>2.2.1</b> Voyages, un objet de type Tibble</a></li>
+<li class="chapter" data-level="2.2.2" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#les-variables-1"><i class="fa fa-check"></i><b>2.2.2</b> Les variables</a><ul>
+<li class="chapter" data-level="2.2.2.1" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#lister-les-en-têtes-variables-names"><i class="fa fa-check"></i><b>2.2.2.1</b> Lister les en-têtes (<em>variables names</em>)</a></li>
+<li class="chapter" data-level="2.2.2.2" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#types-de-variables"><i class="fa fa-check"></i><b>2.2.2.2</b> Types de variables</a></li>
+<li class="chapter" data-level="2.2.2.3" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#valeurs-disponibles-pour-chaque-variable"><i class="fa fa-check"></i><b>2.2.2.3</b> Valeurs disponibles pour chaque variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2.3" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#visualiser-les-valeurs-uniques-dune-variable"><i class="fa fa-check"></i><b>2.2.3</b> Visualiser les valeurs uniques d’une variable</a></li>
+<li class="chapter" data-level="2.2.4" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#dénombrer-le-nombre-de-valeurs-uniques-dune-variable"><i class="fa fa-check"></i><b>2.2.4</b> Dénombrer le nombre de valeurs uniques d’une variable</a></li>
+<li class="chapter" data-level="2.2.5" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#dénombrer-le-nombre-de-na-dune-variable"><i class="fa fa-check"></i><b>2.2.5</b> Dénombrer le nombre de NA d’une variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="inventaire-des-données.html"><a href="inventaire-des-données.html#expéditions-ajoutées-à-lédition-2019-de-la-base-trans-atlantic-slave-trade-dabase"><i class="fa fa-check"></i><b>2.3</b> Expéditions ajoutées à l’édition 2019 de la base Trans Atlantic slave trade Dabase</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html"><i class="fa fa-check"></i><b>3</b> Manipulation des données</a><ul>
+<li class="chapter" data-level="3.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#préalables"><i class="fa fa-check"></i><b>3.1</b> Préalables</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#tidyverse"><i class="fa fa-check"></i><b>3.1.1</b> Tidyverse</a></li>
+<li class="chapter" data-level="3.1.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#appel-des-packages"><i class="fa fa-check"></i><b>3.1.2</b> Appel des packages</a></li>
+<li class="chapter" data-level="3.1.3" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#mini-jeu-de-données-utilisé-comme-exemple"><i class="fa fa-check"></i><b>3.1.3</b> Mini-jeu de données utilisé comme exemple</a><ul>
+<li class="chapter" data-level="3.1.3.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#visualisation-sou-la-forme-de-table-html"><i class="fa fa-check"></i><b>3.1.3.1</b> Visualisation sou la forme de table html</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#visualisation-sou-la-forme-de-table-brute"><i class="fa fa-check"></i><b>3.1.3.2</b> Visualisation sou la forme de table brute</a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.4" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#lopérateur-piping-operator"><i class="fa fa-check"></i><b>3.1.4</b> L’opérateur %&gt;% (piping operator)</a></li>
+<li class="chapter" data-level="3.1.5" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#références"><i class="fa fa-check"></i><b>3.1.5</b> Références</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélectionner-des-colonnes"><i class="fa fa-check"></i><b>3.2</b> Sélectionner des colonnes</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#opérations-courantes"><i class="fa fa-check"></i><b>3.2.1</b> Opérations courantes</a><ul>
+<li class="chapter" data-level="3.2.1.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-dune-colonne-repérée-par-son-nom"><i class="fa fa-check"></i><b>3.2.1.1</b> Sélection d’une colonne repérée par son nom</a></li>
+<li class="chapter" data-level="3.2.1.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-dune-colonne-repérée-par-sa-position-dindex"><i class="fa fa-check"></i><b>3.2.1.2</b> Sélection d’une colonne repérée par sa position d’index</a></li>
+<li class="chapter" data-level="3.2.1.3" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-de-colonnes-multiples-noms-de-variables"><i class="fa fa-check"></i><b>3.2.1.3</b> Sélection de colonnes multiples (noms de variables)</a></li>
+<li class="chapter" data-level="3.2.1.4" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-de-colonnes-multiples-position-dindex"><i class="fa fa-check"></i><b>3.2.1.4</b> Sélection de colonnes multiples (position d’index)</a></li>
+<li class="chapter" data-level="3.2.1.5" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-de-colonnes-contiguës"><i class="fa fa-check"></i><b>3.2.1.5</b> Sélection de colonnes contiguës</a></li>
+<li class="chapter" data-level="3.2.1.6" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#sélection-par-exclusion"><i class="fa fa-check"></i><b>3.2.1.6</b> Sélection par exclusion</a></li>
+<li class="chapter" data-level="3.2.1.7" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#compléter-une-sélection-par-les-colonnes-non-encore-sélectionnées"><i class="fa fa-check"></i><b>3.2.1.7</b> Compléter une sélection par les colonnes non encore sélectionnées</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#opérations-particulières"><i class="fa fa-check"></i><b>3.2.2</b> Opérations particulières</a><ul>
+<li class="chapter" data-level="3.2.2.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#ré-agencer-des-colonnes-alphabétiquement"><i class="fa fa-check"></i><b>3.2.2.1</b> Ré-agencer des colonnes alphabétiquement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#ordonner-les-lignes-en-fonction-des-colonnes"><i class="fa fa-check"></i><b>3.3</b> Ordonner les lignes en fonction des colonnes</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#tri-à-partir-dune-colonne-unique"><i class="fa fa-check"></i><b>3.3.1</b> Tri à partir d’une colonne unique</a><ul>
+<li class="chapter" data-level="3.3.1.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#tri-ascendant"><i class="fa fa-check"></i><b>3.3.1.1</b> Tri ascendant</a></li>
+<li class="chapter" data-level="3.3.1.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#tri-descendant"><i class="fa fa-check"></i><b>3.3.1.2</b> Tri descendant</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#tri-selon-plusieurs-colonnes"><i class="fa fa-check"></i><b>3.3.2</b> Tri selon plusieurs colonnes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-de-lignes"><i class="fa fa-check"></i><b>3.4</b> Filtrage de lignes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-en-fonction-dune-colonne"><i class="fa fa-check"></i><b>3.4.1</b> Filtrage en fonction d’une colonne</a><ul>
+<li class="chapter" data-level="3.4.1.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-portant-sur-des-données-textuelles"><i class="fa fa-check"></i><b>3.4.1.1</b> Filtrage portant sur des données textuelles</a></li>
+<li class="chapter" data-level="3.4.1.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-valeurs-numériques"><i class="fa fa-check"></i><b>3.4.1.2</b> Filtrage, valeurs numériques</a></li>
+<li class="chapter" data-level="3.4.1.3" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-basé-sur-un-vecteur"><i class="fa fa-check"></i><b>3.4.1.3</b> Filtrage basé sur un vecteur</a></li>
+<li class="chapter" data-level="3.4.1.4" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-des-observations-manquantes"><i class="fa fa-check"></i><b>3.4.1.4</b> Filtrage des observations manquantes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#filtrage-en-fonction-de-plusieurs-colonnes"><i class="fa fa-check"></i><b>3.4.2</b> Filtrage en fonction de plusieurs colonnes</a><ul>
+<li class="chapter" data-level="3.4.2.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#utilisation-de-la-fonction-filter"><i class="fa fa-check"></i><b>3.4.2.1</b> Utilisation de la fonction filter</a></li>
+<li class="chapter" data-level="3.4.2.2" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#utilisation-de-la-fonction-filter_at"><i class="fa fa-check"></i><b>3.4.2.2</b> Utilisation de la fonction filter_at</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#exemples"><i class="fa fa-check"></i><b>3.5</b> Exemples</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="manipulation-des-données.html"><a href="manipulation-des-données.html#femmes-propriétaires-de-navires-nantais-armés-pour-la-traite-atlantique"><i class="fa fa-check"></i><b>3.5.1</b> Femmes propriétaires de navires nantais armés pour la traite atlantique</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chronologies.html"><a href="chronologies.html"><i class="fa fa-check"></i><b>4</b> Chronologies</a><ul>
+<li class="chapter" data-level="4.1" data-path="chronologies.html"><a href="chronologies.html#préalables-1"><i class="fa fa-check"></i><b>4.1</b> Préalables</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="chronologies.html"><a href="chronologies.html#packages"><i class="fa fa-check"></i><b>4.1.1</b> Packages</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chronologies.html"><a href="chronologies.html#thème-personnalisé-gpglot2"><i class="fa fa-check"></i><b>4.1.2</b> Thème personnalisé gpglot2</a><ul>
+<li class="chapter" data-level="4.1.2.1" data-path="chronologies.html"><a href="chronologies.html#tidyverse-1"><i class="fa fa-check"></i><b>4.1.2.1</b> Tidyverse</a></li>
+<li class="chapter" data-level="4.1.2.2" data-path="chronologies.html"><a href="chronologies.html#autres-packages"><i class="fa fa-check"></i><b>4.1.2.2</b> Autres packages</a></li>
+<li class="chapter" data-level="4.1.2.3" data-path="chronologies.html"><a href="chronologies.html#appel-des-packages-1"><i class="fa fa-check"></i><b>4.1.2.3</b> Appel des packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chronologies.html"><a href="chronologies.html#chronologie-globale-de-la-traite"><i class="fa fa-check"></i><b>4.2</b> Chronologie globale de la traite</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="chronologies.html"><a href="chronologies.html#bornes-chronologiques-et-durée-de-la-traite"><i class="fa fa-check"></i><b>4.2.1</b> Bornes chronologiques et durée de la traite</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chronologies.html"><a href="chronologies.html#expéditions-de-traite"><i class="fa fa-check"></i><b>4.2.2</b> Expéditions de traite</a><ul>
+<li class="chapter" data-level="4.2.2.1" data-path="chronologies.html"><a href="chronologies.html#tableau-deffectifs"><i class="fa fa-check"></i><b>4.2.2.1</b> Tableau d’effectifs</a></li>
+<li class="chapter" data-level="4.2.2.2" data-path="chronologies.html"><a href="chronologies.html#nombre-moyen-dexpéditions-par-années"><i class="fa fa-check"></i><b>4.2.2.2</b> Nombre moyen d’expéditions par années</a></li>
+<li class="chapter" data-level="4.2.2.3" data-path="chronologies.html"><a href="chronologies.html#dix-années-comportant-le-plus-grand-nombre-dexpéditions"><i class="fa fa-check"></i><b>4.2.2.3</b> Dix années comportant le plus grand nombre d’expéditions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2.3" data-path="chronologies.html"><a href="chronologies.html#esclaves-embarqués-par-années"><i class="fa fa-check"></i><b>4.2.3</b> Esclaves embarqués par années</a></li>
+<li class="chapter" data-level="4.2.4" data-path="chronologies.html"><a href="chronologies.html#représentations-graphiques"><i class="fa fa-check"></i><b>4.2.4</b> Représentations graphiques</a><ul>
+<li class="chapter" data-level="4.2.4.1" data-path="chronologies.html"><a href="chronologies.html#représentation-graphique-en-base-r"><i class="fa fa-check"></i><b>4.2.4.1</b> Représentation graphique en base R</a></li>
+<li class="chapter" data-level="4.2.4.2" data-path="chronologies.html"><a href="chronologies.html#représentations-avancées-ggplot2"><i class="fa fa-check"></i><b>4.2.4.2</b> Représentations avancées (ggplot2)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chronologies.html"><a href="chronologies.html#chronologies-comparatives-de-la-traite"><i class="fa fa-check"></i><b>4.3</b> Chronologies comparatives de la traite</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="chronologies.html"><a href="chronologies.html#chronologie-des-expéditions-en-fonction-des-pavillons-de-navires"><i class="fa fa-check"></i><b>4.3.1</b> Chronologie des expéditions en fonction des pavillons de navires</a><ul>
+<li class="chapter" data-level="4.3.1.1" data-path="chronologies.html"><a href="chronologies.html#tableaux"><i class="fa fa-check"></i><b>4.3.1.1</b> Tableaux</a></li>
+<li class="chapter" data-level="4.3.1.2" data-path="chronologies.html"><a href="chronologies.html#représentations-graphiques-1"><i class="fa fa-check"></i><b>4.3.1.2</b> Représentations graphiques</a></li>
+<li class="chapter" data-level="4.3.1.3" data-path="chronologies.html"><a href="chronologies.html#représentations-graphiques-avancées-ggplot2"><i class="fa fa-check"></i><b>4.3.1.3</b> Représentations graphiques avancées (ggplot2)</a></li>
+<li class="chapter" data-level="4.3.1.4" data-path="chronologies.html"><a href="chronologies.html#chronologie-comparative-des-expéditions-de-traite-en-fonction-des-ports-de-départs"><i class="fa fa-check"></i><b>4.3.1.4</b> Chronologie comparative des expéditions de traite en fonction des ports de départs</a></li>
+<li class="chapter" data-level="4.3.1.5" data-path="chronologies.html"><a href="chronologies.html#chronologie-darrivée-des-navires-principaux-lieux-dachat-desclaves"><i class="fa fa-check"></i><b>4.3.1.5</b> Chronologie d’arrivée des navires, principaux lieux d’achat d’esclaves</a></li>
+<li class="chapter" data-level="4.3.1.6" data-path="chronologies.html"><a href="chronologies.html#prise-en-considération-des-années-pour-lesquelles-des-mentions-dexpéditions-de-traite-sont-absentes."><i class="fa fa-check"></i><b>4.3.1.6</b> Prise en considération des années pour lesquelles des mentions d’expéditions de traite sont absentes.</a></li>
+<li class="chapter" data-level="4.3.1.7" data-path="chronologies.html"><a href="chronologies.html#tableau-chronologique-des-expéditions-de-traite-incluant-les-années-sans-observations"><i class="fa fa-check"></i><b>4.3.1.7</b> Tableau chronologique des expéditions de traite incluant les années sans observations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chronologies.html"><a href="chronologies.html#exemples-1"><i class="fa fa-check"></i><b>4.4</b> Exemples</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="chronologies.html"><a href="chronologies.html#chronologie-des-expéditions-de-traite-à-destination-de-saint-domingue"><i class="fa fa-check"></i><b>4.4.1</b> Chronologie des expéditions de traite à destination de Saint-Domingue</a><ul>
+<li class="chapter" data-level="4.4.1.1" data-path="chronologies.html"><a href="chronologies.html#tableau-deffectifs-1"><i class="fa fa-check"></i><b>4.4.1.1</b> Tableau d’effectifs</a></li>
+<li class="chapter" data-level="4.4.1.2" data-path="chronologies.html"><a href="chronologies.html#représentation-graphique"><i class="fa fa-check"></i><b>4.4.1.2</b> Représentation graphique</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2" data-path="chronologies.html"><a href="chronologies.html#nombre-desclaves-embarqués-par-années-à-destination-de-saint-domingue"><i class="fa fa-check"></i><b>4.4.2</b> Nombre d’esclaves embarqués par années à destination de Saint-Domingue</a><ul>
+<li class="chapter" data-level="4.4.2.1" data-path="chronologies.html"><a href="chronologies.html#tableau"><i class="fa fa-check"></i><b>4.4.2.1</b> Tableau</a></li>
+<li class="chapter" data-level="4.4.2.2" data-path="chronologies.html"><a href="chronologies.html#représentation-graphique-1"><i class="fa fa-check"></i><b>4.4.2.2</b> Représentation graphique</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.3" data-path="chronologies.html"><a href="chronologies.html#chronologie-décennale-des-expéditions-de-traite-à-destination-de-saint-domingue-selon-les-ports-de-départ"><i class="fa fa-check"></i><b>4.4.3</b> Chronologie décennale des expéditions de traite à destination de Saint-Domingue selon les ports de départ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cartographie.html"><a href="cartographie.html"><i class="fa fa-check"></i><b>5</b> Cartographie</a><ul>
+<li class="chapter" data-level="5.1" data-path="cartographie.html"><a href="cartographie.html#préalables-2"><i class="fa fa-check"></i><b>5.1</b> Préalables</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="cartographie.html"><a href="cartographie.html#packages-1"><i class="fa fa-check"></i><b>5.1.1</b> Packages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="cartographie.html"><a href="cartographie.html#importation-des-données"><i class="fa fa-check"></i><b>5.1.2</b> Importation des données</a><ul>
+<li class="chapter" data-level="5.1.2.1" data-path="cartographie.html"><a href="cartographie.html#fond-de-carte-statique-rattaché-au-package-tmap"><i class="fa fa-check"></i><b>5.1.2.1</b> Fond de carte statique rattaché au package tmap</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="cartographie.html"><a href="cartographie.html#données-géoréférencées-des-bases-trans-atlantic-slave-et-inter-american-slave-trade"><i class="fa fa-check"></i><b>5.1.2.2</b> Données géoréférencées des bases Trans Atlantic slave et Inter American slave trade</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="cartographie.html"><a href="cartographie.html#références-1"><i class="fa fa-check"></i><b>5.1.3</b> Références</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="cartographie.html"><a href="cartographie.html#lieux-de-la-traite"><i class="fa fa-check"></i><b>5.2</b> Lieux de la traite</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="cartographie.html"><a href="cartographie.html#tmap"><i class="fa fa-check"></i><b>5.2.1</b> tmap</a></li>
+<li class="chapter" data-level="5.2.2" data-path="cartographie.html"><a href="cartographie.html#carte-statique"><i class="fa fa-check"></i><b>5.2.2</b> carte statique</a></li>
+<li class="chapter" data-level="5.2.3" data-path="cartographie.html"><a href="cartographie.html#carte-interactive"><i class="fa fa-check"></i><b>5.2.3</b> carte interactive</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cartographie.html"><a href="cartographie.html#cartes-basées-sur-un-filtrage"><i class="fa fa-check"></i><b>5.3</b> Cartes basées sur un filtrage</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="cartographie.html"><a href="cartographie.html#exemple-de-localisation-des-ports-négriers"><i class="fa fa-check"></i><b>5.3.1</b> Exemple de localisation des ports négriers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="cartographie.html"><a href="cartographie.html#carte-des-lieux-dachat-des-esclaves-pour-nantes"><i class="fa fa-check"></i><b>5.4</b> Carte des Lieux d’achat des esclaves pour Nantes</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="cartographie.html"><a href="cartographie.html#carte-comparative-des-lieux-de-vente-en-fonction-pavillons"><i class="fa fa-check"></i><b>5.4.1</b> Carte comparative des lieux de vente en fonction pavillons</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html"><i class="fa fa-check"></i><b>6</b> R intermédiaire</a><ul>
+<li class="chapter" data-level="6.1" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#fonctions-personnalisées"><i class="fa fa-check"></i><b>6.1</b> Fonctions personnalisées</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#exemple-de-fonction-graphiques-chronologiques-de-ports-en-base-r"><i class="fa fa-check"></i><b>6.1.1</b> Exemple de fonction : graphiques chronologiques de ports en Base R</a></li>
+<li class="chapter" data-level="6.1.2" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#exemple-de-fonction-thème-graphique-ggplot2"><i class="fa fa-check"></i><b>6.1.2</b> Exemple de fonction : thème graphique (ggplot2)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#programmation"><i class="fa fa-check"></i><b>6.2</b> Programmation</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#boucle-for"><i class="fa fa-check"></i><b>6.2.1</b> Boucle for</a><ul>
+<li class="chapter" data-level="6.2.1.1" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#exemples-2"><i class="fa fa-check"></i><b>6.2.1.1</b> Exemples</a></li>
+<li class="chapter" data-level="6.2.1.2" data-path="r-intermédiaire.html"><a href="r-intermédiaire.html#cas-pratique-représentation-en-base-r-construite-à-partir-dune-boucle-for"><i class="fa fa-check"></i><b>6.2.1.2</b> Cas pratique : représentation en Base R construite à partir d’une boucle for</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Explorer la Trans-Atlantic Slave trade Database avec R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Explorer la Trans-Atlantic Slave trade Database avec R</h1>
+<p class="author"><em>Wilfrid Cariou</em></p>
+<p class="date"><em>2020-04-18</em></p>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+R est un langage de programmation open source multiplateforme spécialisé dans le traitement et l’analyse de données. Son classement en avril 2020, comme le dixième langage le plus populaire au monde, selon l’index <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a>, traduit son importance comme outil de traitement des données.
+<p>
+R est une implémentation du langage de programmation S spécialisé dans les statistiques, créé par John Chambers en 1976, combiné au langage Scheme. Il existe des différences importantes entre R et S, mais une grande partie du code écrit pour S s’exécute sans modification dans R.
+Le langage est développé à partir de 1992 par Ross Ihaka et Robert Gentleman à l’Université d’Auckland. La première version officielle est publiée en 2000.
+<p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="prise-en-main.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RunH.pdf", "RunH.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"theme": "cosmo"
+});
+});
+</script>
+
+</body>
+
+</html>
