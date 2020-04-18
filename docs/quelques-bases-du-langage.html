@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Quelques bases du langage | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Quelques bases du langage | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Quelques bases du langage | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-04-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prise-en-main.html"/>
+<link rel="next" href="règles-et-conventions-de-syntaxe.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="prise-en-main.html"><a href="prise-en-main.html"><i class="fa fa-check"></i><b>1</b> Prise en main</a><ul>
+<li class="chapter" data-level="1.1" data-path="prise-en-main.html"><a href="prise-en-main.html#installation"><i class="fa fa-check"></i><b>1.1</b> Installation</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="prise-en-main.html"><a href="prise-en-main.html#installer-r"><i class="fa fa-check"></i><b>1.1.1</b> Installer R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="prise-en-main.html"><a href="prise-en-main.html#installer-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Installer RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="prise-en-main.html"><a href="prise-en-main.html#evolutivité"><i class="fa fa-check"></i><b>1.2</b> Evolutivité</a></li>
+<li class="chapter" data-level="1.3" data-path="prise-en-main.html"><a href="prise-en-main.html#interface"><i class="fa fa-check"></i><b>1.3</b> Interface</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#quelques-repères-indispensables-pour-débuter"><i class="fa fa-check"></i><b>1.3.1</b> Quelques repères indispensables pour débuter</a></li>
+<li class="chapter" data-level="1.3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#organiser-ses-fichiers-dans-un-projet"><i class="fa fa-check"></i><b>1.3.2</b> Organiser ses fichiers dans un projet</a></li>
+<li class="chapter" data-level="1.3.3" data-path="prise-en-main.html"><a href="prise-en-main.html#console-et-scripts"><i class="fa fa-check"></i><b>1.3.3</b> Console et scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html"><i class="fa fa-check"></i><b>2</b> Quelques bases du langage</a><ul>
+<li class="chapter" data-level="2.1" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#des-instructions-simples-les-expressions-arithmétiques"><i class="fa fa-check"></i><b>2.1</b> Des instructions simples : les expressions arithmétiques</a></li>
+<li class="chapter" data-level="2.2" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#utiliser-les-variables"><i class="fa fa-check"></i><b>2.2</b> Utiliser les variables</a></li>
+<li class="chapter" data-level="2.3" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#afficher-le-contenu-dune-variable"><i class="fa fa-check"></i><b>2.3</b> Afficher le contenu d’une variable</a></li>
+<li class="chapter" data-level="2.4" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#supprimer-une-variable"><i class="fa fa-check"></i><b>2.4</b> Supprimer une variable</a></li>
+<li class="chapter" data-level="2.5" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#réaffecter-une-valeur-à-une-variable"><i class="fa fa-check"></i><b>2.5</b> Réaffecter une valeur à une variable</a></li>
+<li class="chapter" data-level="2.6" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#exemple-de-séquence-dinstructions"><i class="fa fa-check"></i><b>2.6</b> Exemple de séquence d’instructions</a></li>
+<li class="chapter" data-level="2.7" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#découvrir-les-vecteurs"><i class="fa fa-check"></i><b>2.7</b> Découvrir les vecteurs</a></li>
+<li class="chapter" data-level="2.8" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#utiliser-les-fonctions-existantes"><i class="fa fa-check"></i><b>2.8</b> Utiliser les fonctions existantes</a></li>
+<li class="chapter" data-level="2.9" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#imbrication"><i class="fa fa-check"></i><b>2.9</b> Imbrication</a></li>
+<li class="chapter" data-level="2.10" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#fonctions-de-base-et-fonction-de-packages"><i class="fa fa-check"></i><b>2.10</b> Fonctions de base et fonction de packages</a></li>
+<li class="chapter" data-level="2.11" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#recommandations"><i class="fa fa-check"></i><b>2.11</b> Recommandations</a></li>
+<li class="chapter" data-level="2.12" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#découvrir-quelques-fonctions-existantes"><i class="fa fa-check"></i><b>2.12</b> Découvrir quelques fonctions existantes</a></li>
+<li class="chapter" data-level="2.13" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#a-vous-quelles-tâches-accomplissent-les-fonctions-suivantes"><i class="fa fa-check"></i><b>2.13</b> A vous ! Quelles tâches accomplissent les fonctions suivantes ?</a></li>
+<li class="chapter" data-level="2.14" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#quelles-tâches-accomplissent-les-fonctions-suivantes-correction"><i class="fa fa-check"></i><b>2.14</b> Quelles tâches accomplissent les fonctions suivantes ? (correction)</a></li>
+<li class="chapter" data-level="2.15" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#quelles-tâches-accomplissent-les-fonctions-suivantes-correction-1"><i class="fa fa-check"></i><b>2.15</b> Quelles tâches accomplissent les fonctions suivantes ? (correction)</a></li>
+<li class="chapter" data-level="2.16" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#quelles-tâches-accomplissent-les-fonctions-suivantes-correction-2"><i class="fa fa-check"></i><b>2.16</b> Quelles tâches accomplissent les fonctions suivantes ? (correction)</a></li>
+<li class="chapter" data-level="2.17" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#a-vous-imbriquer-des-fonctions"><i class="fa fa-check"></i><b>2.17</b> A vous ! Imbriquer des fonctions</a></li>
+<li class="chapter" data-level="2.18" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#imbriquer-des-fonctions-correction"><i class="fa fa-check"></i><b>2.18</b> Imbriquer des fonctions (correction)</a></li>
+<li class="chapter" data-level="2.19" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#a-vous-identifier-des-fonctions-existantes"><i class="fa fa-check"></i><b>2.19</b> A vous ! identifier des fonctions existantes</a></li>
+<li class="chapter" data-level="2.20" data-path="quelques-bases-du-langage.html"><a href="quelques-bases-du-langage.html#identifier-des-fonctions-existantes-correction"><i class="fa fa-check"></i><b>2.20</b> identifier des fonctions existantes (correction)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="règles-et-conventions-de-syntaxe.html"><a href="règles-et-conventions-de-syntaxe.html"><i class="fa fa-check"></i><b>3</b> Règles et conventions de syntaxe</a><ul>
+<li class="chapter" data-level="3.1" data-path="règles-et-conventions-de-syntaxe.html"><a href="règles-et-conventions-de-syntaxe.html#règles-de-déclaration"><i class="fa fa-check"></i><b>3.1</b> Règles de déclaration</a></li>
+<li class="chapter" data-level="3.2" data-path="règles-et-conventions-de-syntaxe.html"><a href="règles-et-conventions-de-syntaxe.html#conventions-de-déclaration-adoptées-en-td"><i class="fa fa-check"></i><b>3.2</b> Conventions de déclaration adoptées en td</a></li>
+<li class="chapter" data-level="3.3" data-path="règles-et-conventions-de-syntaxe.html"><a href="règles-et-conventions-de-syntaxe.html#conventions-de-style"><i class="fa fa-check"></i><b>3.3</b> Conventions de style</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="commenter-ses-instructions.html"><a href="commenter-ses-instructions.html"><i class="fa fa-check"></i><b>4</b> Commenter ses instructions</a></li>
+<li class="chapter" data-level="5" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html"><i class="fa fa-check"></i><b>5</b> Commenter une instruction</a><ul>
+<li class="chapter" data-level="5.1" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html#section"><i class="fa fa-check"></i><b>5.1</b> </a></li>
+<li class="chapter" data-level="5.2" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html#exemple"><i class="fa fa-check"></i><b>5.2</b> Exemple</a></li>
+<li class="chapter" data-level="5.3" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html#références"><i class="fa fa-check"></i><b>5.3</b> Références</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html#utilisation-de-r-en-histoire"><i class="fa fa-check"></i><b>5.3.1</b> Utilisation de R en Histoire</a></li>
+<li class="chapter" data-level="5.3.2" data-path="commenter-une-instruction.html"><a href="commenter-une-instruction.html#références-générales"><i class="fa fa-check"></i><b>5.3.2</b> Références générales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="manipuler-les-données.html"><a href="manipuler-les-données.html"><i class="fa fa-check"></i><b>6</b> Manipuler les données</a></li>
+<li class="chapter" data-level="7" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>7</b> Methods</a></li>
+<li class="chapter" data-level="8" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>8</b> Applications</a><ul>
+<li class="chapter" data-level="8.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>8.1</b> Example one</a></li>
+<li class="chapter" data-level="8.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>8.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quelques-bases-du-langage" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Quelques bases du langage</h1>
+<div id="des-instructions-simples-les-expressions-arithmétiques" class="section level2">
+<h2><span class="header-section-number">2.1</span> Des instructions simples : les expressions arithmétiques</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="quelques-bases-du-langage.html#cb1-1"></a><span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">80</span> <span class="op">+</span><span class="st"> </span><span class="dv">200</span> </span></code></pre></div>
+<pre><code>## [1] 330</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="quelques-bases-du-langage.html#cb3-1"></a>(<span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">80</span> <span class="op">+</span><span class="st"> </span><span class="dv">200</span>)<span class="op">/</span><span class="dv">3</span> </span></code></pre></div>
+<pre><code>## [1] 110</code></pre>
+<ul>
+<li>R utilise le <strong>point</strong> comme séparateur décimal.</li>
+<li>R utilise les signes opératoires <strong>+, -, *, / et ^</strong> et les parenthèses.</li>
+</ul>
+</div>
+<div id="utiliser-les-variables" class="section level2">
+<h2><span class="header-section-number">2.2</span> Utiliser les variables</h2>
+<ul>
+<li>Les variables permettent de stocker des informations dans la mémoire de l’ordinateur.</li>
+<li>Pour employer une image, une variable est une boîte, que l’ordinateur va repérer par une étiquette. Pour avoir accès au contenu de la boîte, il suffit de la désigner par son étiquette.</li>
+<li>Quand on créé une variable “vide” on parle de <em>déclaration</em> en spécifiant son nom.<br />
+</li>
+<li>Quand on attribue une valeur à une variable, on parle <em>d’affectation</em>.</li>
+<li>L’affectation se lit de droite à gauche.<br />
+</li>
+<li>Les instructions situées à droite du signe <strong>flèche</strong> sont affectées à une variable désignée par un nom.</li>
+<li>La flèche est saisie par le raccourcis clavier <strong>Alt-6</strong>.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="quelques-bases-du-langage.html#cb5-1"></a><span class="co"># Exemple de déclaration</span></span>
+<span id="cb5-2"><a href="quelques-bases-du-langage.html#cb5-2"></a>var1 &lt;-<span class="kw">c</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="quelques-bases-du-langage.html#cb6-1"></a><span class="co"># Exemples d&#39;affectations</span></span>
+<span id="cb6-2"><a href="quelques-bases-du-langage.html#cb6-2"></a>var2 &lt;-<span class="st"> </span><span class="dv">4192</span></span>
+<span id="cb6-3"><a href="quelques-bases-du-langage.html#cb6-3"></a>var3 &lt;-<span class="st"> </span><span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="dv">80</span> <span class="op">+</span><span class="st"> </span><span class="dv">200</span> </span>
+<span id="cb6-4"><a href="quelques-bases-du-langage.html#cb6-4"></a>var4 &lt;-<span class="st"> &quot;Jean Simon&quot;</span></span></code></pre></div>
+</div>
+<div id="afficher-le-contenu-dune-variable" class="section level2">
+<h2><span class="header-section-number">2.3</span> Afficher le contenu d’une variable</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="quelques-bases-du-langage.html#cb7-1"></a><span class="kw">print</span>(var3)     <span class="co"># Affichage du contenu de la variable exp_fr.</span></span></code></pre></div>
+<pre><code>## [1] 330</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="quelques-bases-du-langage.html#cb9-1"></a>var3            <span class="co"># Ou tout simplement...</span></span></code></pre></div>
+<pre><code>## [1] 330</code></pre>
+</div>
+<div id="supprimer-une-variable" class="section level2">
+<h2><span class="header-section-number">2.4</span> Supprimer une variable</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="quelques-bases-du-langage.html#cb11-1"></a><span class="kw">rm</span>(var4) </span></code></pre></div>
+</div>
+<div id="réaffecter-une-valeur-à-une-variable" class="section level2">
+<h2><span class="header-section-number">2.5</span> Réaffecter une valeur à une variable</h2>
+<p>Il est permis de ré-affecter une nouvelle valeur à une même variable.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="quelques-bases-du-langage.html#cb12-1"></a>var2 &lt;-<span class="st"> </span><span class="dv">4192</span></span>
+<span id="cb12-2"><a href="quelques-bases-du-langage.html#cb12-2"></a>var2 &lt;-<span class="st"> </span><span class="dv">6000</span></span>
+<span id="cb12-3"><a href="quelques-bases-du-langage.html#cb12-3"></a>var2</span></code></pre></div>
+<pre><code>## [1] 6000</code></pre>
+<ul>
+<li>Une variable possède à un moment donné une valeur et une seule.</li>
+<li>Quand on assigne une nouvelle valeur à une variable déjà existante, la valeur précédente est perdue.</li>
+</ul>
+</div>
+<div id="exemple-de-séquence-dinstructions" class="section level2">
+<h2><span class="header-section-number">2.6</span> Exemple de séquence d’instructions</h2>
+<p>Programme permettant d’échanger les valeurs de deux variables x et y, et ce quel que soit leur contenu préalable.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="quelques-bases-du-langage.html#cb14-1"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb14-2"><a href="quelques-bases-du-langage.html#cb14-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb14-3"><a href="quelques-bases-du-langage.html#cb14-3"></a><span class="kw">print</span> (x)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="quelques-bases-du-langage.html#cb16-1"></a><span class="kw">print</span> (y)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="quelques-bases-du-langage.html#cb18-1"></a>z &lt;-<span class="st"> </span>x </span>
+<span id="cb18-2"><a href="quelques-bases-du-langage.html#cb18-2"></a>x &lt;-<span class="st"> </span>y</span>
+<span id="cb18-3"><a href="quelques-bases-du-langage.html#cb18-3"></a>y &lt;-<span class="st"> </span>z</span>
+<span id="cb18-4"><a href="quelques-bases-du-langage.html#cb18-4"></a></span>
+<span id="cb18-5"><a href="quelques-bases-du-langage.html#cb18-5"></a><span class="kw">print</span> (x)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="quelques-bases-du-langage.html#cb20-1"></a><span class="kw">print</span> (y)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="découvrir-les-vecteurs" class="section level2">
+<h2><span class="header-section-number">2.7</span> Découvrir les vecteurs</h2>
+<ul>
+<li>Un vecteur est un objet qui contient des éléments de type identique.</li>
+<li>Les vecteurs peuvent être construits en combinant des éléments grâce à l’importante fonction <code>c()</code> (<em>combine</em>).</li>
+<li>Les vecteurs peuvent générer des séquences de nombres.</li>
+<li>La position d’un élément d’un vecteur est appelé position d’index. Elle est noté par un nombre entre crochet. Ainsi le 19e élément du vecteur <code>chrono</code> et <code>1532</code> et le 20e, <code>1533</code>.</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="quelques-bases-du-langage.html#cb22-1"></a><span class="co"># Vecteur textuel</span></span>
+<span id="cb22-2"><a href="quelques-bases-du-langage.html#cb22-2"></a>ports_bretons &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nantes&quot;</span>, <span class="st">&quot;Brest&quot;</span>, <span class="st">&quot;Saint-Malo&quot;</span>, <span class="st">&quot;Vannes&quot;</span>)</span>
+<span id="cb22-3"><a href="quelques-bases-du-langage.html#cb22-3"></a>ports_bretons</span></code></pre></div>
+<pre><code>## [1] &quot;Nantes&quot;     &quot;Brest&quot;      &quot;Saint-Malo&quot; &quot;Vannes&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="quelques-bases-du-langage.html#cb24-1"></a><span class="co"># Vecteur numérique</span></span>
+<span id="cb24-2"><a href="quelques-bases-du-langage.html#cb24-2"></a>chrono &lt;-<span class="st"> </span><span class="dv">1514</span><span class="op">:</span><span class="dv">1866</span></span>
+<span id="cb24-3"><a href="quelques-bases-du-langage.html#cb24-3"></a>chrono</span></code></pre></div>
+<pre><code>##   [1] 1514 1515 1516 1517 1518 1519 1520 1521 1522 1523 1524 1525 1526 1527 1528
+##  [16] 1529 1530 1531 1532 1533 1534 1535 1536 1537 1538 1539 1540 1541 1542 1543
+##  [31] 1544 1545 1546 1547 1548 1549 1550 1551 1552 1553 1554 1555 1556 1557 1558
+##  [46] 1559 1560 1561 1562 1563 1564 1565 1566 1567 1568 1569 1570 1571 1572 1573
+##  [61] 1574 1575 1576 1577 1578 1579 1580 1581 1582 1583 1584 1585 1586 1587 1588
+##  [76] 1589 1590 1591 1592 1593 1594 1595 1596 1597 1598 1599 1600 1601 1602 1603
+##  [91] 1604 1605 1606 1607 1608 1609 1610 1611 1612 1613 1614 1615 1616 1617 1618
+## [106] 1619 1620 1621 1622 1623 1624 1625 1626 1627 1628 1629 1630 1631 1632 1633
+## [121] 1634 1635 1636 1637 1638 1639 1640 1641 1642 1643 1644 1645 1646 1647 1648
+## [136] 1649 1650 1651 1652 1653 1654 1655 1656 1657 1658 1659 1660 1661 1662 1663
+## [151] 1664 1665 1666 1667 1668 1669 1670 1671 1672 1673 1674 1675 1676 1677 1678
+## [166] 1679 1680 1681 1682 1683 1684 1685 1686 1687 1688 1689 1690 1691 1692 1693
+## [181] 1694 1695 1696 1697 1698 1699 1700 1701 1702 1703 1704 1705 1706 1707 1708
+## [196] 1709 1710 1711 1712 1713 1714 1715 1716 1717 1718 1719 1720 1721 1722 1723
+## [211] 1724 1725 1726 1727 1728 1729 1730 1731 1732 1733 1734 1735 1736 1737 1738
+## [226] 1739 1740 1741 1742 1743 1744 1745 1746 1747 1748 1749 1750 1751 1752 1753
+## [241] 1754 1755 1756 1757 1758 1759 1760 1761 1762 1763 1764 1765 1766 1767 1768
+## [256] 1769 1770 1771 1772 1773 1774 1775 1776 1777 1778 1779 1780 1781 1782 1783
+## [271] 1784 1785 1786 1787 1788 1789 1790 1791 1792 1793 1794 1795 1796 1797 1798
+## [286] 1799 1800 1801 1802 1803 1804 1805 1806 1807 1808 1809 1810 1811 1812 1813
+## [301] 1814 1815 1816 1817 1818 1819 1820 1821 1822 1823 1824 1825 1826 1827 1828
+## [316] 1829 1830 1831 1832 1833 1834 1835 1836 1837 1838 1839 1840 1841 1842 1843
+## [331] 1844 1845 1846 1847 1848 1849 1850 1851 1852 1853 1854 1855 1856 1857 1858
+## [346] 1859 1860 1861 1862 1863 1864 1865 1866</code></pre>
+</div>
+<div id="utiliser-les-fonctions-existantes" class="section level2">
+<h2><span class="header-section-number">2.8</span> Utiliser les fonctions existantes</h2>
+<p>Une fonction est programmée pour accomplir une tâche et retourner un résultat.
+Les composantes d’une fonction sont son nom, c’est ce nom qui nous permettra de nous y référer et un ou plusieurs arguments, informations nécessaires à la fonction (entre parenthèses et séparés par le signe virgule).</p>
+<p>A titre d’exemple, la fonction <code>sample</code>permet de tirer un échantillon au sein d’un vecteur. Elle prend comme arguments le nom du vecteur ainsi que la taille de l’échantillon.Certains arguments possèdent des valeurs par défaut et n’ont besoins d’être précisés uniquement si l’on souhait être plus explicite ou si on cherche à modifier cette valeur. Ainsi, l’instruction <code>sample(chrono,1, replace = FALSE)</code> equivant à <code>sample(chrono,1)</code>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="quelques-bases-du-langage.html#cb26-1"></a><span class="kw">sample</span>(chrono,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1757</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="quelques-bases-du-langage.html#cb28-1"></a><span class="kw">sample</span>(chrono,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 1525 1734 1579</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="quelques-bases-du-langage.html#cb30-1"></a><span class="kw">sample</span>(chrono,<span class="dv">1</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 1654</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="quelques-bases-du-langage.html#cb32-1"></a><span class="kw">sample</span>(chrono,<span class="dv">1</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 1623</code></pre>
+</div>
+<div id="imbrication" class="section level2">
+<h2><span class="header-section-number">2.9</span> Imbrication</h2>
+<p>Il est possible d’imbriquer des fonctions dans une instruction : <strong>fonction1(fonction2())</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="quelques-bases-du-langage.html#cb34-1"></a><span class="kw">sort</span>(<span class="kw">toupper</span>(ports_bretons))</span></code></pre></div>
+<pre><code>## [1] &quot;BREST&quot;      &quot;NANTES&quot;     &quot;SAINT-MALO&quot; &quot;VANNES&quot;</code></pre>
+</div>
+<div id="fonctions-de-base-et-fonction-de-packages" class="section level2">
+<h2><span class="header-section-number">2.10</span> Fonctions de base et fonction de packages</h2>
+<ul>
+<li>Il convient de distinguer les fonctions de R {Base} et les fonctions des <em>packages</em>.</li>
+<li>Une fonction de R {Base} peut ne pas fonctionner au sein d’instructions basées sur des packages.</li>
+<li>Des fonctions de packages peuvent se substituer à des fonctions de R {Base}.</li>
+</ul>
+</div>
+<div id="recommandations" class="section level2">
+<h2><span class="header-section-number">2.11</span> Recommandations</h2>
+<p>Les principales fonctions utilisées en td doivent être maîtrisées.</p>
+</div>
+<div id="découvrir-quelques-fonctions-existantes" class="section level2">
+<h2><span class="header-section-number">2.12</span> Découvrir quelques fonctions existantes</h2>
+</div>
+<div id="a-vous-quelles-tâches-accomplissent-les-fonctions-suivantes" class="section level2">
+<h2><span class="header-section-number">2.13</span> A vous ! Quelles tâches accomplissent les fonctions suivantes ?</h2>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="quelques-bases-du-langage.html#cb36-1"></a>x &lt;-<span class="st"> &quot;Nantes&quot;</span></span>
+<span id="cb36-2"><a href="quelques-bases-du-langage.html#cb36-2"></a>y &lt;-<span class="st"> &quot;France&quot;</span></span>
+<span id="cb36-3"><a href="quelques-bases-du-langage.html#cb36-3"></a><span class="kw">nchar</span>(x)              </span>
+<span id="cb36-4"><a href="quelques-bases-du-langage.html#cb36-4"></a><span class="kw">paste</span>(x, y, <span class="dt">sep =</span><span class="st">&quot;, &quot;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="quelques-bases-du-langage.html#cb37-1"></a>chrono &lt;-<span class="st"> </span><span class="dv">1514</span><span class="op">:</span><span class="dv">1866</span></span>
+<span id="cb37-2"><a href="quelques-bases-du-langage.html#cb37-2"></a><span class="kw">length</span>(chrono)</span></code></pre></div>
+</div>
+<div id="quelles-tâches-accomplissent-les-fonctions-suivantes-correction" class="section level2">
+<h2><span class="header-section-number">2.14</span> Quelles tâches accomplissent les fonctions suivantes ? (correction)</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="quelques-bases-du-langage.html#cb38-1"></a>x &lt;-<span class="st"> &quot;Nantes&quot;</span></span>
+<span id="cb38-2"><a href="quelques-bases-du-langage.html#cb38-2"></a>y &lt;-<span class="st"> &quot;France&quot;</span></span>
+<span id="cb38-3"><a href="quelques-bases-du-langage.html#cb38-3"></a><span class="kw">nchar</span>(x)              </span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="quelques-bases-du-langage.html#cb40-1"></a><span class="kw">paste</span>(x, y, <span class="dt">sep =</span><span class="st">&quot;, &quot;</span>)           </span></code></pre></div>
+<pre><code>## [1] &quot;Nantes, France&quot;</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="quelques-bases-du-langage.html#cb42-1"></a><span class="kw">toupper</span>(x)  </span></code></pre></div>
+<pre><code>## [1] &quot;NANTES&quot;</code></pre>
+</div>
+<div id="quelles-tâches-accomplissent-les-fonctions-suivantes-correction-1" class="section level2">
+<h2><span class="header-section-number">2.15</span> Quelles tâches accomplissent les fonctions suivantes ? (correction)</h2>
+<ul>
+<li>nchar : compte le nombre de caractères.</li>
+<li>paste : concaténation, procédé qui permettant de coller bout à bout différentes chaînes de caractères pour n’en faire plus qu’une seule.</li>
+<li>toupper: conversion en majuscules.</li>
+</ul>
+</div>
+<div id="quelles-tâches-accomplissent-les-fonctions-suivantes-correction-2" class="section level2">
+<h2><span class="header-section-number">2.16</span> Quelles tâches accomplissent les fonctions suivantes ? (correction)</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="quelques-bases-du-langage.html#cb44-1"></a>chrono &lt;-<span class="st"> </span><span class="dv">1514</span><span class="op">:</span><span class="dv">1866</span></span>
+<span id="cb44-2"><a href="quelques-bases-du-langage.html#cb44-2"></a><span class="kw">length</span>(chrono)</span></code></pre></div>
+<pre><code>## [1] 353</code></pre>
+<p>length : longueur du vecteur (nombre d’élements contenus dans le vecteur).</p>
+</div>
+<div id="a-vous-imbriquer-des-fonctions" class="section level2">
+<h2><span class="header-section-number">2.17</span> A vous ! Imbriquer des fonctions</h2>
+<p>Concatenez (séparateur tiret) et convertissez en majuscules x, y et z dans la même instruction.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="quelques-bases-du-langage.html#cb46-1"></a>x &lt;-<span class="st"> &quot;Dauphin&quot;</span></span>
+<span id="cb46-2"><a href="quelques-bases-du-langage.html#cb46-2"></a>y &lt;-<span class="st"> &quot;Le Page, Louis&quot;</span></span>
+<span id="cb46-3"><a href="quelques-bases-du-langage.html#cb46-3"></a>z &lt;-<span class="st"> &quot;France&quot;</span></span></code></pre></div>
+</div>
+<div id="imbriquer-des-fonctions-correction" class="section level2">
+<h2><span class="header-section-number">2.18</span> Imbriquer des fonctions (correction)</h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="quelques-bases-du-langage.html#cb47-1"></a>x &lt;-<span class="st"> &quot;Dauphin&quot;</span></span>
+<span id="cb47-2"><a href="quelques-bases-du-langage.html#cb47-2"></a>y &lt;-<span class="st"> &quot;Le Page, Louis&quot;</span></span>
+<span id="cb47-3"><a href="quelques-bases-du-langage.html#cb47-3"></a>z &lt;-<span class="st"> &quot;France&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="quelques-bases-du-langage.html#cb48-1"></a><span class="kw">toupper</span>(<span class="kw">paste</span>(x, y, z, <span class="dt">sep =</span> <span class="st">&quot; - &quot;</span>))  </span></code></pre></div>
+<pre><code>## [1] &quot;DAUPHIN - LE PAGE, LOUIS - FRANCE&quot;</code></pre>
+</div>
+<div id="a-vous-identifier-des-fonctions-existantes" class="section level2">
+<h2><span class="header-section-number">2.19</span> A vous ! identifier des fonctions existantes</h2>
+<p>Trouvez une fonction sur le R base Sheetcheat permettant d’arrondir au dixième le quotient de <span class="math inline">\(\frac{4850}{26}\)</span>.</p>
+</div>
+<div id="identifier-des-fonctions-existantes-correction" class="section level2">
+<h2><span class="header-section-number">2.20</span> identifier des fonctions existantes (correction)</h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="quelques-bases-du-langage.html#cb50-1"></a><span class="kw">round</span>(<span class="dv">4850</span><span class="op">/</span><span class="dv">26</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 186.5</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prise-en-main.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="règles-et-conventions-de-syntaxe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RunH.pdf", "RunH.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
